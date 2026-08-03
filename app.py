@@ -62,6 +62,12 @@ def main():
     if area_selecionada == "NATUREZA":
         sub_materia = st.sidebar.selectbox("Escolha a Disciplina:", ["biologia", "fisica", "quimica"])
         caminho_busca_lotes = os.path.join(caminho_busca_lotes, sub_materia)
+    if area_selecionada == "HUMANAS":
+        sub_materia = st.sidebar.selectbox("Escolha a Disciplina:", ["filosofia", "sociologia", "historia", "geografia"])
+        caminho_busca_lotes = os.path.join(caminho_busca_lotes, sub_materia)
+    if area_selecionada == "LINGUAGENS":
+        sub_materia = st.sidebar.selectbox("Escolha a Disciplina:", ["gramatica", "interpretacaodetexto", "literatura"])
+        caminho_busca_lotes = os.path.join(caminho_busca_lotes, sub_materia)
 
     # 2. Carrega os lotes dinamicamente com base no caminho construído
     lotes = carregar_lotes_disponiveis(caminho_busca_lotes)
@@ -195,7 +201,7 @@ def main():
             questao["dificuldade"] = nova_dif
             questao["competencia"] = nova_comp
             questao["habilidade"] = nova_hab
-            questao["contexto"] = novo_contexto
+            questao["contexto"] = novo_contexto.replace("\\n", "\n").replace("/n", "\n")
             questao["introducao_alternativas"] = nova_intro
             questao["alternativas"] = novas_alternativas
 
