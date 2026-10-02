@@ -1,0 +1,6 @@
+slugify 
+requests 
+openai 
+dotenv 
+streamlit 
+pymupdf
